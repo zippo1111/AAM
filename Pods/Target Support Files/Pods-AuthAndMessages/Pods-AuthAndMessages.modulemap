@@ -1,0 +1,6 @@
+framework module Pods_AuthAndMessages {
+  umbrella header "Pods-AuthAndMessages-umbrella.h"
+
+  export *
+  module * { export * }
+}
