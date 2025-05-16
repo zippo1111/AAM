@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		19BBF91A7AD67F3A2AA32F13 /* Pods_AuthAndMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D52A00CF2AA479ABACB570E /* Pods_AuthAndMessages.framework */; };
 		9A2E793D2DD7B0D2006A20A4 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E793C2DD7B0D2006A20A4 /* DateFormatterHelper.swift */; };
+		9A2E79452DD7F9B1006A20A4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E79442DD7F9B1006A20A4 /* AuthViewModel.swift */; };
+		9A2E79472DD7FFB1006A20A4 /* PhoneMaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E79462DD7FFB1006A20A4 /* PhoneMaskResponse.swift */; };
 		9A9017162DD64BCF00086E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9017152DD64BCF00086E50 /* AppDelegate.swift */; };
 		9A9017182DD64BCF00086E50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9017172DD64BCF00086E50 /* SceneDelegate.swift */; };
 		9A90171A2DD64BCF00086E50 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9017192DD64BCF00086E50 /* AuthController.swift */; };
@@ -38,6 +40,8 @@
 		5D52A00CF2AA479ABACB570E /* Pods_AuthAndMessages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthAndMessages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E049A5B16CF639925F2D8A3 /* Pods-AuthAndMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthAndMessages.release.xcconfig"; path = "Target Support Files/Pods-AuthAndMessages/Pods-AuthAndMessages.release.xcconfig"; sourceTree = "<group>"; };
 		9A2E793C2DD7B0D2006A20A4 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		9A2E79442DD7F9B1006A20A4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		9A2E79462DD7FFB1006A20A4 /* PhoneMaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneMaskResponse.swift; sourceTree = "<group>"; };
 		9A9017122DD64BCF00086E50 /* AuthAndMessages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthAndMessages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9017152DD64BCF00086E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A9017172DD64BCF00086E50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9017192DD64BCF00086E50 /* AuthController.swift */,
+				9A2E79442DD7F9B1006A20A4 /* AuthViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9527B12DD76DF2004BB3C2 /* SuccessResponse.swift */,
+				9A2E79462DD7FFB1006A20A4 /* PhoneMaskResponse.swift */,
 				9AE9B6022DD6B5AC00347BC4 /* CustomLayout.swift */,
 				9AE9B6032DD6B5AC00347BC4 /* Section.swift */,
 			);
@@ -370,6 +376,7 @@
 				9A9017322DD65D5300086E50 /* Network.swift in Sources */,
 				9A9527B42DD76F4C004BB3C2 /* AuthService.swift in Sources */,
 				9A90171A2DD64BCF00086E50 /* AuthController.swift in Sources */,
+				9A2E79472DD7FFB1006A20A4 /* PhoneMaskResponse.swift in Sources */,
 				9AE9B6042DD6B5AC00347BC4 /* CustomLayout.swift in Sources */,
 				9AE9B60E2DD6C97500347BC4 /* InfoViewModel.swift in Sources */,
 				9A9527B62DD79AB1004BB3C2 /* Extension+InfoViewModel.swift in Sources */,
@@ -380,6 +387,7 @@
 				9A9017182DD64BCF00086E50 /* SceneDelegate.swift in Sources */,
 				9AE9B6072DD6B5E900347BC4 /* InfoCell.swift in Sources */,
 				9AE9B6052DD6B5AC00347BC4 /* Section.swift in Sources */,
+				9A2E79452DD7F9B1006A20A4 /* AuthViewModel.swift in Sources */,
 				9AE9B5F52DD6B1BE00347BC4 /* InfosViewController.swift in Sources */,
 				9A2E793D2DD7B0D2006A20A4 /* DateFormatterHelper.swift in Sources */,
 				9AE9B6112DD6CA4C00347BC4 /* InfosModel.swift in Sources */,

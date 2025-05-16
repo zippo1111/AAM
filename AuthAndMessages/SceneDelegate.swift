@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = .init(windowScene: scene)
         window?.rootViewController = UINavigationController(
             rootViewController: AuthController(
-                //viewModel: AuthViewModel()
+                viewModel: AuthViewModel()
             )
         )
         window?.makeKeyAndVisible()

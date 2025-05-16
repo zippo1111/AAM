@@ -37,7 +37,7 @@ struct PhoneMaskFormatter {
         var index = digits.startIndex
 
         for ch in pattern {
-            if ch == "X" {
+            if ch == "Х" {
                 if index != digits.endIndex {
                     result.append(digits[index])
                     index = digits.index(after: index)

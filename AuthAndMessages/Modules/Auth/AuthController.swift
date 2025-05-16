@@ -54,15 +54,29 @@ final class AuthController: UIViewController {
         action: #selector(handleTap)
     )
 
-    private var phoneFormatter = PhoneMaskFormatter(pattern: "+7 XXX XXX-XX-XX")
+    private var phoneFormatter: PhoneMaskFormatter?//(pattern: "+7 XXX XXX-XX-XX")
 
-    private let authService = AuthService()
+    private let viewModel: AuthViewModel
     private let infosViewModel = InfosViewModel()
     private let dateFormatterHelper = DateFormatterHelper()
+
+    init(viewModel: AuthViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Task {
+            if let phoneMask = await viewModel.getPhoneMask() {
+                phoneFormatter = PhoneMaskFormatter(pattern: phoneMask)
+            }
+        }
         setupView()
         configureConstraints()
     }
@@ -137,9 +151,7 @@ final class AuthController: UIViewController {
             return
         }
 
-        let cleanedPhone = phone.filter { $0.isNumber }
-
-        authService.isAuthSuccessfull(phone: cleanedPhone, password: password, completion: { [weak self] isSuccess in
+        viewModel.isAuthSuccessfull(phone, password, completion: { [weak self] isSuccess in
             guard let self = self else {
                 return
             }
@@ -170,11 +182,11 @@ fileprivate extension AuthController {
 extension AuthController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string.isEmpty {
-            phoneFormatter.deleteLast()
+            phoneFormatter?.deleteLast()
         } else {
-            phoneFormatter.input(character: string)
+            phoneFormatter?.input(character: string)
         }
-        textField.text = phoneFormatter.formattedNumber()
+        textField.text = phoneFormatter?.formattedNumber()
         return false
     }
 }
