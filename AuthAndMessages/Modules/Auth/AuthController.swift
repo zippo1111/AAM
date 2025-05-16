@@ -54,9 +54,11 @@ final class AuthController: UIViewController {
         action: #selector(handleTap)
     )
 
-    private var formatter = PhoneMaskFormatter(pattern: "+7 XXX XXX-XX-XX")
+    private var phoneFormatter = PhoneMaskFormatter(pattern: "+7 XXX XXX-XX-XX")
 
     private let authService = AuthService()
+    private let infosViewModel = InfosViewModel()
+    private let dateFormatterHelper = DateFormatterHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,7 +145,11 @@ final class AuthController: UIViewController {
             }
 
             if isSuccess {
-                self.goNext(vc: InfosViewController(viewModel: InfosViewModel()))
+                let controller = InfosViewController(
+                    viewModel: self.infosViewModel,
+                    dateFormatter: self.dateFormatterHelper
+                )
+                self.goNext(vc: controller)
             }
         })
     }
@@ -163,12 +169,12 @@ fileprivate extension AuthController {
 
 extension AuthController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.isEmpty { // deletion
-            formatter.deleteLast()
+        if string.isEmpty {
+            phoneFormatter.deleteLast()
         } else {
-            formatter.input(character: string)
+            phoneFormatter.input(character: string)
         }
-        textField.text = formatter.formattedNumber()
+        textField.text = phoneFormatter.formattedNumber()
         return false
     }
 }

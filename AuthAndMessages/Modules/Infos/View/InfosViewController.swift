@@ -15,20 +15,22 @@ final class InfosViewController: UIViewController {
         control.selectedSegmentTintColor = UIColor(red: 0.43, green: 0.61, blue: 0.81, alpha: 1.00)
         return control
     }()
-
-    private let collectionView = InfosCollectionView()
     private var dataSource: UICollectionViewDiffableDataSource<Section, InfoViewModel>!
-    private let viewModel: InfosViewModel?
-
     private var viewModelData: [InfoViewModel]? {
         didSet {
+            initialViewModelData = viewModelData
             refreshCollection()
         }
     }
+    private var initialViewModelData: [InfoViewModel]?
+    private let collectionView = InfosCollectionView()
     private let spinner = UIActivityIndicatorView()
+    private let viewModel: InfosViewModel?
+    private let dateFormatter: DateFormatterHelperProtocol
 
-    init(viewModel: InfosViewModel?) {
+    init(viewModel: InfosViewModel?, dateFormatter: DateFormatterHelperProtocol) {
         self.viewModel = viewModel
+        self.dateFormatter = dateFormatter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -154,9 +156,11 @@ final class InfosViewController: UIViewController {
     @objc func sortChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("Server sort selected")
+            viewModelData = initialViewModelData
+            refreshCollection()
         case 1:
-            print("By date sort selected")
+            viewModelData = viewModelData?.sortedByDateDescending(dateFormatter)
+            refreshCollection()
         default:
             break
         }
